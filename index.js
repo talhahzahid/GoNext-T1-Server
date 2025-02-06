@@ -6,10 +6,12 @@ import connectdb from "./src/db/index.js";
 dotenv.config();
 const port = process.env.PORT;
 import userRoutes from "./src/routes/user.routes.js";
+import cookieParser from "cookie-parser";
 const corsOptions = {
   origin: "http://localhost:5173",
   credentials: true,
 };
+app.use(cookieParser())
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(urlencoded({ extended: false }));
